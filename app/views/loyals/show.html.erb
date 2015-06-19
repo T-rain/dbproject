@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+	            // Create the chart
+	            $('#container').highcharts({
+	                chart: {
+	                    type: 'column'
+	                },
+	                title: {
+	                    text: 'Analysis of Loyalty. June, 2015'
+	                },
+
+	                xAxis: {
+	                    type: 'year'
+	                },
+	                yAxis: {
+	                    title: {
+	                        text: 'Total percent '
+	                    }
+	                },
+	                legend: {
+	                    enabled: false
+	                },
+	                plotOptions: {
+	                    series: {
+	                        borderWidth: 0,
+	                        dataLabels: {
+	                            enabled: true,
+	                            format: '{point.y:.1f}%'
+	                        }
+	                    }
+	                },
+
+	                tooltip: {
+	                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+	                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+	                },
+
+	                series: [{
+	                    name: 'Year',
+	                    colorByPoint: true,
+	                    data: 
+	                    [
+	                        [<%= @yearl %>,<%= @ratiol %> * 100],
+	                        [<%= @year %>,<%= @ratio %> * 100],
+	                        [<%= @yearn %>,<%= @ration %> * 100]
+
+	                    ]
+	                }],
+
+	            });
+
+	});
+
+
+	</script>
+
+</head>
+<body>
+	<%= @yearl %>
+	<br/>
+	訂單總量<%= @totall %> 
+	<br/>
+	目標訂單<%= @regionl %>
+
+	<br/>
+	顧客對該地區的旅遊比例<%= @ratiol %>
+
+	<br/>
+
+	<%= @year %>
+	<br/>
+	訂單總量<%= @total %> 
+	<br/>
+	目標訂單<%= @region %>
+	<br/>
+	顧客對該地區的旅遊比例<%= @ratio %>
+
+	<br/>
+
+	<%= @yearn %>
+	<br/>
+	訂單總量<%= @totaln %> 
+	<br/>
+	目標訂單<%= @regionn %>
+	<br/>
+	顧客對該地區的旅遊比例<%= @ration %>
+	<br/>
+
+	<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 0"></div>
+	
+	<%= link_to 'Edit', edit_loyal_path(@loyal) %> |
+	<%= link_to 'Back', loyals_path %>
+</body>
+</html>
+
+
+
+
+
+
+	
+

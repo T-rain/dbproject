@@ -1,0 +1,36 @@
+<%= form_for(@loyal) do |f| %>
+  <% if @loyal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loyal.errors.count, "error") %> prohibited this loyal from being saved:</h2>
+
+      <ul>
+      <% @loyal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.select :gender, [ '男','女'] %>
+  </div>
+  <div class="field">
+    <h4>age</h4>
+    <%= f.number_field :agebegin %> to
+    <%= f.number_field :agelast %>
+  </div>
+  <div class="field">
+    <%= f.label :region %><br>
+    <%= f.select :region, ['日本','韓國','中國大陸','港澳地區','美加','歐洲'] %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.select :year,[2010,2011,2012] %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,72 @@
+`
+<!DOCTYPE html>
+<!-- saved from url=(0148)file:///D:/%E6%94%BF%E5%A4%A7/103%E4%B8%8B%E5%AD%B8%E6%9C%9F/%EF%BC%B7eb%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E4%BD%9C%E6%A5%AD/bootstrap_test.html# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bootstrap 101 Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <style type="text/css">
+    *{
+      margin-left: 10px;
+    }
+
+    #logo{
+      width: 500px;
+      height:500px;
+      position:absolute;
+      top:100px;
+      left: 50em;
+      border-radius: 10px;
+    }
+    body{
+      background-image: url(/assets/congruent_pentagon.png);
+    }
+
+    #pic{
+      position: absolute;
+      margin:auto; 
+    }
+    </style>
+  </head>
+  <body>
+    <h1>顧客是否對路線具有忠誠度？</h1>
+
+<h1>分析清單</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Region</th>
+      <th>Year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loyal.each do |loyal| %>
+      <tr>
+        <td><%= loyal.gender %></td>
+        <td><%= loyal.agebegin %> to <%= loyal.agelast %></td>
+        <td><%= loyal.region %></td>
+        <td><%= loyal.year %></td>
+        <td><%= link_to 'analyst', loyal %></td>
+        <td><%= link_to 'Edit', edit_loyal_path(loyal) %></td>
+        <td><%= link_to 'Destroy', loyal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+<%= link_to '新增', new_loyal_path %>
+
+</body>
+</html>
