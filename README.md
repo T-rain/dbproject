@@ -1,4 +1,4 @@
-##DB project
+## DB project
 
 please config the database
 
